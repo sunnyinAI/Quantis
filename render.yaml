@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: quantis-web
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEV_OTP_VISIBLE
+        value: "true"
+      - key: SESSION_EXPIRY_DAYS
+        value: "30"
+      - key: DB_PATH
+        value: /tmp/quantis.db
