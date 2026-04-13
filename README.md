@@ -1,1 +1,47 @@
-IyBRdWFudGlzCgpNb2JpbGUtZmlyc3Qgd2ViIGFwcCBmb3IgSW5kaWFuIGhvdXNlaG9sZCBzaG9wcGluZywgcGFudHJ5LCBtYW5kaSBwcmljZXMsIGJ1ZGdldHMgYW5kIG1lYWwgcGxhbm5pbmcuCgojIyBMb2NhbCBydW4KCmBgYGJhc2gKbnBtIGluc3RhbGwKbnBtIHJ1biBkZXYKYGBgCgpPcGVuIGBodHRwOi8vbG9jYWxob3N0OjUxNzMvYC4KCiMjIFByb2R1Y3Rpb24gYnVpbGQKCmBgYGJhc2gKbnBtIGluc3RhbGwKbnBtIHJ1biBidWlsZApucG0gc3RhcnQKYGBgCgpUaGUgc2VydmVyIHNlcnZlcyB0aGUgYnVpbHQgY2xpZW50IGZyb20gYGNsaWVudC9kaXN0YCBpbiBwcm9kdWN0aW9uLgoKIyMgUmVuZGVyIGRlcGxveW1lbnQKClRoaXMgcmVwbyBpbmNsdWRlcyBgcmVuZGVyLnlhbWxgIGZvciBhIHNpbmdsZS1zZXJ2aWNlIE5vZGUgZGVwbG95bWVudC4KClJlY29tbWVuZGVkIGVudiB2YXJzOgoKLSBgTk9ERV9FTlY9cHJvZHVjdGlvbmAKLSBgU0VTU0lPTl9FWFBJUllfREFZUz0zMGAKLSBgREVWX09UUF9WSVNJQkxFPXRydWVgIGZvciBkZW1vIGRlcGxveW1lbnRzCi0gYERCX1BBVEg9L3RtcC9xdWFudGlzLmRiYCBmb3IgYSBmcmVlIGRlbW8gZGVwbG95bWVudAotIGBEQl9QQVRIPS92YXIvZGF0YS9xdWFudGlzLmRiYCBpZiB5b3UgYXR0YWNoIGEgcGVyc2lzdGVudCBkaXNrIG9uIGEgcGFpZCBwbGFuCi0gYEFOVEhST1BJQ19BUElfS0VZPS4uLmAgZm9yIGZ1bGwgQUkgcmVzcG9uc2VzCgojIyMgRGVwbG95IHN0ZXBzCgoxLiBQdXNoIHRoaXMgY29kZSB0byBhIEdpdEh1YiByZXBvLgoyLiBJbiBSZW5kZXIsIGNyZWF0ZSBhIG5ldyBCbHVlcHJpbnQgb3IgV2ViIFNlcnZpY2UgZnJvbSB0aGF0IHJlcG8uCjMuIExldCBSZW5kZXIgdXNlIHRoZSBpbmNsdWRlZCBgcmVuZGVyLnlhbWxgLgo0LiBBZnRlciB0aGUgZmlyc3QgZGVwbG95LCBvcGVuIGAvYXBpL2hlYWx0aGAgdG8gY29uZmlybSB0aGUgc2VydmljZSBpcyBoZWFsdGh5LgoKIyMgTm90ZXMKCi0gV2l0aG91dCBgQU5USFJPUElDX0FQSV9LRVlgLCB0aGUgYXBwIHN0aWxsIHdvcmtzIHdpdGggbG9jYWwgZmFsbGJhY2sgcmVzcG9uc2VzIGZvciBBc2sgUXVhbnRpcyBhbmQgbWVhbCBwbGFubmluZy4KLSBUaGUgY3VycmVudCBiYWNrZW5kIHVzZXMgU1FMaXRlIGZvciBkZW1vIHNwZWVkLiBGb3IgbG9uZy10ZXJtIHByb2R1Y3Rpb24sIG1vdmUgdG8gUG9zdGdyZXMuCg==
+# Quantis
+
+Mobile-first web app for Indian household shopping, pantry, mandi prices, budgets and meal planning.
+
+## Local run
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173/`.
+
+## Production build
+
+```bash
+npm install
+npm run build
+npm start
+```
+
+The server serves the built client from `client/dist` in production.
+
+## Render deployment
+
+This repo includes `render.yaml` for a single-service Node deployment.
+
+Recommended env vars:
+
+- `NODE_ENV=production`
+- `SESSION_EXPIRY_DAYS=30`
+- `DEV_OTP_VISIBLE=true` for demo deployments
+- `DB_PATH=/tmp/quantis.db` for a free demo deployment
+- `DB_PATH=/var/data/quantis.db` if you attach a persistent disk on a paid plan
+- `ANTHROPIC_API_KEY=...` for full AI responses
+
+### Deploy steps
+
+1. Push this code to a GitHub repo.
+2. In Render, create a new Blueprint or Web Service from that repo.
+3. Let Render use the included `render.yaml`.
+4. After the first deploy, open `/api/health` to confirm the service is healthy.
+
+## Notes
+
+- Without `ANTHROPIC_API_KEY`, the app still works with local fallback responses for Ask Quantis and meal planning.
+- The current backend uses SQLite for demo speed. For long-term production, move to Postgres.
