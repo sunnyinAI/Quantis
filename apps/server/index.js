@@ -9,12 +9,6 @@ const { errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
 
-// Run DB migrations on startup
-runMigrations().catch((err) => {
-  console.error('Fatal: DB migration failed', err.message);
-  process.exit(1);
-});
-
 app.use(helmet({ contentSecurityPolicy: false }));
 
 const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:5173').split(',').map(s => s.trim());
@@ -40,4 +34,12 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }))
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`🪔 Kharcha API running on port ${PORT}`));
+
+runMigrations()
+  .then(() => {
+    app.listen(PORT, () => console.log(`🪔 Kharcha API running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error('Fatal: DB migration failed after all retries', err.message);
+    process.exit(1);
+  });
