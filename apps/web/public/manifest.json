@@ -1,0 +1,38 @@
+{
+  "name": "Kharcha",
+  "short_name": "Kharcha",
+  "description": "Kharcha — Apna Ghar, Apna Hisaab. AI-powered smart shopping and life organiser for Indian households.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5F0",
+  "theme_color": "#FF9933",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/kharcha-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Grocery List",
+      "short_name": "Grocery",
+      "url": "/grocery",
+      "description": "Open the shared grocery checklist"
+    },
+    {
+      "name": "Compare Prices",
+      "short_name": "Prices",
+      "url": "/prices",
+      "description": "Check Indian grocery prices across platforms"
+    },
+    {
+      "name": "Ask Kharcha",
+      "short_name": "Assistant",
+      "url": "/assistant",
+      "description": "Chat with Kharcha for recipes and budget advice"
+    }
+  ]
+}

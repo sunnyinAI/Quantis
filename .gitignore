@@ -1,10 +1,14 @@
 node_modules/
 client/node_modules/
 server/node_modules/
+apps/*/node_modules/
+packages/*/node_modules/
 .env
+.env.local
 *.db
 *.db-shm
 *.db-wal
 dist/
 client/dist/
+apps/web/.next/
 .DS_Store

@@ -1,16 +1,25 @@
 {
   "name": "kharcha",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "postinstall": "npm install --prefix server && npm install --include=dev --prefix client",
-    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
-    "build": "npm run build --prefix client",
-    "start": "npm run start --prefix server"
+    "dev": "turbo run dev --filter=@kharcha/web --filter=@kharcha/server",
+    "dev:all": "turbo run dev",
+    "build": "turbo run build",
+    "build:web": "turbo run build --filter=@kharcha/web",
+    "start": "turbo run start --filter=@kharcha/server",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
   }
 }
