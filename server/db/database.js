@@ -3,8 +3,8 @@ const path = require('path');
 const { runMigrations } = require('./migrations');
 
 const defaultDbPath = process.env.RENDER_DISK_ROOT
-  ? path.join(process.env.RENDER_DISK_ROOT, 'quantis.db')
-  : path.join(__dirname, '..', '..', 'quantis.db');
+  ? path.join(process.env.RENDER_DISK_ROOT, 'kharcha.db')
+  : path.join(__dirname, '..', '..', 'kharcha.db');
 const DB_PATH = process.env.DB_PATH || defaultDbPath;
 
 let db;

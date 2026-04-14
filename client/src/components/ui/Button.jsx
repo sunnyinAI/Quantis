@@ -6,7 +6,7 @@ export default function Button({ children, variant = 'primary', size = 'md', cla
     secondary: 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200',
     ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400',
     danger: 'bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-900/20 dark:hover:bg-red-900/30 dark:text-red-400',
-    success: 'bg-hundigreen-500 hover:bg-hundigreen-600 text-white shadow-sm',
+    success: 'bg-kgreen-500 hover:bg-kgreen-600 text-white shadow-sm',
   };
   const sizes = {
     sm: 'py-2 px-3 text-sm',

@@ -26,7 +26,7 @@ export const useAuthStore = create(
         set({ isLoading: true, error: null });
         try {
           const data = await api.verifyOtp(phone, otp);
-          localStorage.setItem('hundi_token', data.token);
+          localStorage.setItem('kharcha_token', data.token);
           set({ user: data.user, token: data.token, isLoading: false });
           return data;
         } catch (err) {
@@ -37,7 +37,7 @@ export const useAuthStore = create(
 
       logout: async () => {
         try { await api.logout(); } catch { /* no-op */ }
-        localStorage.removeItem('hundi_token');
+        localStorage.removeItem('kharcha_token');
         set({ user: null, token: null });
       },
 
@@ -50,10 +50,10 @@ export const useAuthStore = create(
       isAuthenticated: () => !!get().token,
     }),
     {
-      name: 'hundi-auth',
+      name: 'kharcha-auth',
       partialize: (s) => ({ user: s.user, token: s.token }),
       onRehydrateStorage: () => (state) => {
-        if (state?.token) localStorage.setItem('hundi_token', state.token);
+        if (state?.token) localStorage.setItem('kharcha_token', state.token);
       },
     }
   )

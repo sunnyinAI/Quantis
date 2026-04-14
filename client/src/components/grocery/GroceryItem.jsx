@@ -36,7 +36,7 @@ export default function GroceryItem({ item, onToggle, onDelete }) {
           onClick={onToggle}
           className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
             item.is_checked
-              ? 'bg-hundigreen-500 border-hundigreen-500'
+              ? 'bg-kgreen-500 border-kgreen-500'
               : 'border-gray-300 dark:border-gray-500'
           }`}
         >
@@ -49,7 +49,7 @@ export default function GroceryItem({ item, onToggle, onDelete }) {
             <span className={`font-medium text-sm ${item.is_checked ? 'line-through text-gray-400' : 'text-gray-800 dark:text-gray-100'}`}>
               {item.name}
             </span>
-            {item.is_recurring && <RefreshCw size={12} className="text-hundigreen-500 flex-shrink-0" />}
+            {item.is_recurring && <RefreshCw size={12} className="text-kgreen-500 flex-shrink-0" />}
           </div>
           <div className="flex items-center gap-2 mt-0.5">
             <span className="text-xs text-gray-400">{item.quantity} {item.unit}</span>

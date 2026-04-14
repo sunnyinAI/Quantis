@@ -28,7 +28,7 @@ export default function MandiPage() {
 
   const trending = (changePct) => {
     if (changePct > 2) return { icon: TrendingUp, color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20' };
-    if (changePct < -2) return { icon: TrendingDown, color: 'text-hundigreen-600', bg: 'bg-hundigreen-50 dark:bg-hundigreen-900/20' };
+    if (changePct < -2) return { icon: TrendingDown, color: 'text-kgreen-600', bg: 'bg-kgreen-50 dark:bg-kgreen-900/20' };
     return { icon: Minus, color: 'text-gray-400', bg: 'bg-gray-50 dark:bg-gray-800' };
   };
 
@@ -58,17 +58,17 @@ export default function MandiPage() {
         <>
           {/* Insight card */}
           {data.insight && (
-            <div className={`rounded-2xl p-4 mb-4 ${data.insight.savings_pct > 20 ? 'bg-hundigreen-50 dark:bg-hundigreen-900/20 border border-hundigreen-200 dark:border-hundigreen-800' : 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'}`}>
+            <div className={`rounded-2xl p-4 mb-4 ${data.insight.savings_pct > 20 ? 'bg-kgreen-50 dark:bg-kgreen-900/20 border border-kgreen-200 dark:border-kgreen-800' : 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'}`}>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">{data.insight.savings_pct > 20 ? '💡' : 'ℹ️'}</span>
                 <div>
-                  <p className={`font-medium text-sm ${data.insight.savings_pct > 20 ? 'text-hundigreen-800 dark:text-hundigreen-300' : 'text-blue-800 dark:text-blue-300'}`}>
+                  <p className={`font-medium text-sm ${data.insight.savings_pct > 20 ? 'text-kgreen-800 dark:text-kgreen-300' : 'text-blue-800 dark:text-blue-300'}`}>
                     {data.insight.recommendation}
                   </p>
                   <div className="flex gap-4 mt-2 text-xs">
                     <div><span className="text-gray-500">Mandi price:</span> <span className="font-semibold">₹{data.insight.mandi_price_per_kg}/kg</span></div>
                     <div><span className="text-gray-500">App delivery:</span> <span className="font-semibold">₹{data.insight.app_delivery_price_per_kg}/kg</span></div>
-                    {data.insight.savings_pct > 0 && <div><span className="text-hundigreen-600 font-semibold">{data.insight.savings_pct}% cheaper at mandi</span></div>}
+                    {data.insight.savings_pct > 0 && <div><span className="text-kgreen-600 font-semibold">{data.insight.savings_pct}% cheaper at mandi</span></div>}
                   </div>
                 </div>
               </div>

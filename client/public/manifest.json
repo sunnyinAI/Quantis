@@ -1,7 +1,7 @@
 {
-  "name": "Quantis",
-  "short_name": "Quantis",
-  "description": "Quantis — Apna Ghar, Apna Hisaab. AI-powered smart shopping and life organiser for Indian households.",
+  "name": "Kharcha",
+  "short_name": "Kharcha",
+  "description": "Kharcha — Apna Ghar, Apna Hisaab. AI-powered smart shopping and life organiser for Indian households.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F5F5F0",
@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/quantis-icon.svg",
+      "src": "/kharcha-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -29,10 +29,10 @@
       "description": "Check Indian grocery prices across platforms"
     },
     {
-      "name": "Ask Quantis",
+      "name": "Ask Kharcha",
       "short_name": "Assistant",
       "url": "/assistant",
-      "description": "Chat with Quantis for recipes and budget advice"
+      "description": "Chat with Kharcha for recipes and budget advice"
     }
   ]
 }

@@ -29,7 +29,7 @@ export const useUIStore = create(
       removeToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
     }),
     {
-      name: 'hundi-ui',
+      name: 'kharcha-ui',
       partialize: (s) => ({ language: s.language, darkMode: s.darkMode }),
       onRehydrateStorage: () => (state) => {
         if (state?.darkMode) document.documentElement.classList.add('dark');

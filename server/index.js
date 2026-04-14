@@ -42,7 +42,7 @@ app.use('/api/assistant', aiLimiter, require('./routes/assistant'));
 app.use('/api/collaborate', require('./routes/collaborate'));
 
 // Health check
-app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Quantis' }));
+app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }));
 
 // Serve client in production
 if (process.env.NODE_ENV === 'production') {
@@ -56,5 +56,5 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🪔 Quantis server running on port ${PORT}`);
+  console.log(`🪔 Kharcha server running on port ${PORT}`);
 });

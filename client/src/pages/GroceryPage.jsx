@@ -124,7 +124,7 @@ export default function GroceryPage() {
           <div className="flex items-center justify-between mb-2">
             <div>
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{checkedCount}/{activeItems.length} items</span>
-              {progress === 100 && <span className="ml-2 text-xs text-hundigreen-600 dark:text-hundigreen-400 font-medium">🎉 All done!</span>}
+              {progress === 100 && <span className="ml-2 text-xs text-kgreen-600 dark:text-kgreen-400 font-medium">🎉 All done!</span>}
             </div>
             <div className="flex gap-2">
               <button onClick={handleShare} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">

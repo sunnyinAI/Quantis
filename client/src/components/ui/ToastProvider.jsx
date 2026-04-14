@@ -4,7 +4,7 @@ import { useUIStore } from '../../store/useUIStore';
 
 const ICONS = { success: CheckCircle, error: AlertCircle, info: Info, warning: AlertCircle };
 const COLORS = {
-  success: 'bg-hundigreen-500 text-white',
+  success: 'bg-kgreen-500 text-white',
   error: 'bg-red-500 text-white',
   info: 'bg-gray-800 text-white dark:bg-gray-700',
   warning: 'bg-amber-500 text-white',

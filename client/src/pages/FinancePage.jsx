@@ -96,7 +96,7 @@ export default function FinancePage() {
                   <p className="text-xs text-gray-400">Spent</p>
                 </div>
                 <div>
-                  <p className="text-hundigreen-600 font-medium">{formatCurrency(Math.max(0, summary.budget - summary.total_expense))}</p>
+                  <p className="text-kgreen-600 font-medium">{formatCurrency(Math.max(0, summary.budget - summary.total_expense))}</p>
                   <p className="text-xs text-gray-400">Left</p>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function FinancePage() {
                       <p className="text-xs text-gray-400">{formatDate(tx.date)} · {tx.payment_method}</p>
                     </div>
                     <div className="text-right">
-                      <p className={`font-semibold ${tx.type === 'income' ? 'text-hundigreen-600' : 'text-gray-800 dark:text-gray-200'}`}>
+                      <p className={`font-semibold ${tx.type === 'income' ? 'text-kgreen-600' : 'text-gray-800 dark:text-gray-200'}`}>
                         {tx.type === 'income' ? '+' : '-'}{formatCurrency(tx.amount)}
                       </p>
                     </div>
@@ -203,13 +203,13 @@ export default function FinancePage() {
                   <div key={bill.id} className={`bg-white dark:bg-gray-800 border rounded-2xl px-4 py-3 flex items-center gap-3 ${bill.is_paid ? 'border-gray-100 dark:border-gray-700 opacity-60' : days <= 0 ? 'border-red-200 dark:border-red-800' : days <= 3 ? 'border-yellow-200 dark:border-yellow-800' : 'border-gray-100 dark:border-gray-700'}`}>
                     <div className="flex-1">
                       <p className="font-medium text-gray-800 dark:text-gray-100">{bill.name}</p>
-                      <p className={`text-xs mt-0.5 ${bill.is_paid ? 'text-hundigreen-600' : days <= 0 ? 'text-red-500' : days <= 3 ? 'text-yellow-500' : 'text-gray-400'}`}>
+                      <p className={`text-xs mt-0.5 ${bill.is_paid ? 'text-kgreen-600' : days <= 0 ? 'text-red-500' : days <= 3 ? 'text-yellow-500' : 'text-gray-400'}`}>
                         {bill.is_paid ? '✓ Paid' : days <= 0 ? 'Overdue!' : `Due in ${days} days · ${formatDate(bill.due_date)}`}
                       </p>
                     </div>
                     <span className="font-bold text-gray-800 dark:text-gray-200">{formatCurrency(bill.amount)}</span>
                     {!bill.is_paid && (
-                      <button onClick={() => payBill(bill.id)} className="p-1.5 rounded-lg bg-hundigreen-50 dark:bg-hundigreen-900/20 text-hundigreen-600">
+                      <button onClick={() => payBill(bill.id)} className="p-1.5 rounded-lg bg-kgreen-50 dark:bg-kgreen-900/20 text-kgreen-600">
                         <CheckCircle size={18} />
                       </button>
                     )}
@@ -249,7 +249,7 @@ export default function FinancePage() {
                     <p className="text-xs text-gray-400">{sub.billing_cycle} · {sub.renewal_date ? `Renews ${formatDate(sub.renewal_date)}` : 'No renewal date'}</p>
                   </div>
                   <span className="font-bold text-gray-800 dark:text-gray-200">{formatCurrency(sub.amount)}</span>
-                  <button onClick={() => toggleSubscription(sub.id)} className={`px-3 py-1.5 rounded-full text-xs font-medium ${sub.is_active ? 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300' : 'bg-hundigreen-100 text-hundigreen-700 dark:bg-hundigreen-900/30 dark:text-hundigreen-400'}`}>
+                  <button onClick={() => toggleSubscription(sub.id)} className={`px-3 py-1.5 rounded-full text-xs font-medium ${sub.is_active ? 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300' : 'bg-kgreen-100 text-kgreen-700 dark:bg-kgreen-900/30 dark:text-kgreen-400'}`}>
                     {sub.is_active ? 'Pause' : 'Resume'}
                   </button>
                   <button onClick={() => deleteSubscription(sub.id)} className="p-1 text-gray-400 hover:text-red-500"><Trash2 size={14} /></button>
@@ -270,7 +270,7 @@ export default function FinancePage() {
           <div className="flex gap-2 mb-2">
             {['expense', 'income'].map((t) => (
               <button key={t} type="button" onClick={() => setTxForm({ ...txForm, type: t })}
-                className={`flex-1 py-2.5 rounded-xl text-sm font-medium border capitalize transition-all ${txForm.type === t ? (t === 'income' ? 'bg-hundigreen-500 text-white border-hundigreen-500' : 'bg-red-500 text-white border-red-500') : 'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600'}`}>
+                className={`flex-1 py-2.5 rounded-xl text-sm font-medium border capitalize transition-all ${txForm.type === t ? (t === 'income' ? 'bg-kgreen-500 text-white border-kgreen-500' : 'bg-red-500 text-white border-red-500') : 'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600'}`}>
                 {t}
               </button>
             ))}

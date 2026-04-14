@@ -86,7 +86,7 @@ export default function PricesPage() {
                 {result.item} ({qty} kg)
               </h2>
               {available.length > 0 && (
-                <span className="text-xs text-hundigreen-600 dark:text-hundigreen-400 font-medium bg-hundigreen-50 dark:bg-hundigreen-900/20 px-2 py-1 rounded-full">
+                <span className="text-xs text-kgreen-600 dark:text-kgreen-400 font-medium bg-kgreen-50 dark:bg-kgreen-900/20 px-2 py-1 rounded-full">
                   {available.length} platforms
                 </span>
               )}
@@ -95,14 +95,14 @@ export default function PricesPage() {
             <div className="space-y-3">
               {available.map((platform, i) => (
                 <motion.div key={platform.platform} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}
-                  className={`bg-white dark:bg-gray-800 border rounded-2xl p-4 ${platform.is_best ? 'border-hundigreen-500 dark:border-hundigreen-600' : 'border-gray-100 dark:border-gray-700'}`}>
+                  className={`bg-white dark:bg-gray-800 border rounded-2xl p-4 ${platform.is_best ? 'border-kgreen-500 dark:border-kgreen-600' : 'border-gray-100 dark:border-gray-700'}`}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{PLATFORM_LOGOS[platform.platform] || '🛒'}</span>
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="font-semibold text-gray-800 dark:text-gray-100">{platform.name}</span>
-                          {platform.is_best && <span className="text-xs bg-hundigreen-100 dark:bg-hundigreen-900/30 text-hundigreen-700 dark:text-hundigreen-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1"><Star size={10} /> Best Deal</span>}
+                          {platform.is_best && <span className="text-xs bg-kgreen-100 dark:bg-kgreen-900/30 text-kgreen-700 dark:text-kgreen-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1"><Star size={10} /> Best Deal</span>}
                         </div>
                         <div className="flex items-center gap-3 mt-0.5 text-xs text-gray-400">
                           <span className="flex items-center gap-1"><Clock size={10} /> {platform.delivery_time}</span>
@@ -115,7 +115,7 @@ export default function PricesPage() {
                       {platform.discount_pct > 0 && (
                         <div className="flex items-center gap-1 justify-end">
                           <span className="text-xs text-gray-400 line-through">₹{platform.mrp}</span>
-                          <span className="text-xs text-hundigreen-600 dark:text-hundigreen-400 font-medium">{platform.discount_pct}% off</span>
+                          <span className="text-xs text-kgreen-600 dark:text-kgreen-400 font-medium">{platform.discount_pct}% off</span>
                         </div>
                       )}
                     </div>
@@ -124,7 +124,7 @@ export default function PricesPage() {
                   <div className="mt-3">
                     <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5">
                       <div
-                        className={`h-1.5 rounded-full ${platform.is_best ? 'bg-hundigreen-500' : 'bg-saffron-400'}`}
+                        className={`h-1.5 rounded-full ${platform.is_best ? 'bg-kgreen-500' : 'bg-saffron-400'}`}
                         style={{ width: `${Math.max(20, 100 - ((platform.price - Math.min(...available.map(p => p.price))) / Math.max(...available.map(p => p.price)) * 60))}%` }}
                       />
                     </div>

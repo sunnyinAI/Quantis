@@ -28,7 +28,7 @@ export default function SettingsPage() {
   const { addToast } = useUIStore();
 
   const [form, setForm] = useState(() => ({
-    name: user?.name === 'Quantis User' ? '' : user?.name || '',
+    name: user?.name === 'Kharcha User' ? '' : user?.name || '',
     family_size: String(user?.family_size || 2),
     monthly_budget: String(user?.monthly_budget || 10000),
     dietary_pref: user?.dietary_pref || 'vegetarian',
@@ -43,7 +43,7 @@ export default function SettingsPage() {
     setSaving(true);
     try {
       await updateProfile({
-        name: form.name || 'Quantis User',
+        name: form.name || 'Kharcha User',
         language: currentLanguage,
         dark_mode: darkMode ? 1 : 0,
         dietary_pref: form.dietary_pref,
@@ -179,7 +179,7 @@ export default function SettingsPage() {
 
       <Card className="px-5 py-5">
         <div className="mb-4 flex items-center gap-3">
-          <div className="rounded-2xl bg-hundigreen-50 p-3 text-hundigreen-700 dark:bg-hundigreen-900/20 dark:text-hundigreen-300">
+          <div className="rounded-2xl bg-kgreen-50 p-3 text-kgreen-700 dark:bg-kgreen-900/20 dark:text-kgreen-300">
             <Users size={20} />
           </div>
           <div>

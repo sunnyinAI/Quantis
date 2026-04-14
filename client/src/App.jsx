@@ -42,7 +42,7 @@ function SyncUserPreferences() {
 
 function RequireAuth() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('hundi_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('kharcha_token');
   const location = useLocation();
 
   if (!token) {
@@ -54,7 +54,7 @@ function RequireAuth() {
 
 function GuestOnly() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('hundi_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('kharcha_token');
 
   if (token) {
     return <Navigate to="/" replace />;
@@ -65,7 +65,7 @@ function GuestOnly() {
 
 function NotFoundRedirect() {
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('hundi_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('kharcha_token');
 
   return <Navigate to={token ? '/' : '/login'} replace />;
 }

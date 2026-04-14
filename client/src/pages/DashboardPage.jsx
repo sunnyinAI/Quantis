@@ -31,7 +31,7 @@ const QUICK_LINKS = [
     title: 'Compare Prices',
     description: 'Blinkit, Zepto, BigBasket and more.',
     icon: TrendingUp,
-    accent: 'bg-hundigreen-500 text-white',
+    accent: 'bg-kgreen-500 text-white',
   },
   {
     to: '/meals',
@@ -42,7 +42,7 @@ const QUICK_LINKS = [
   },
   {
     to: '/assistant',
-    title: 'Ask Quantis',
+    title: 'Ask Kharcha',
     description: 'Recipes, budget advice and shopping help.',
     icon: Bot,
     accent: 'bg-white text-saffron-600 border border-saffron-200 dark:bg-gray-900 dark:text-saffron-300 dark:border-saffron-900/40',
@@ -115,12 +115,12 @@ export default function DashboardPage() {
   }, [activeListId, financeSummary?.total_expense, items, pantryItems]);
 
   const greeting =
-    user?.name && user.name !== 'Quantis User' ? `Namaste, ${user.name}` : 'Namaste';
+    user?.name && user.name !== 'Kharcha User' ? `Namaste, ${user.name}` : 'Namaste';
   const activeList = lists.find((list) => list.id === activeListId);
 
   return (
     <div className="page-container space-y-5">
-      <Card className="overflow-hidden bg-gradient-to-br from-saffron-500 via-saffron-500 to-hundigreen-600 p-0 text-white">
+      <Card className="overflow-hidden bg-gradient-to-br from-saffron-500 via-saffron-500 to-kgreen-600 p-0 text-white">
         <div className="px-5 py-6">
           <div className="mb-5 flex items-start justify-between gap-4">
             <div>

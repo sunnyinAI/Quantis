@@ -17,7 +17,7 @@ export default {
           800: '#994B00',
           900: '#662F00',
         },
-        hundigreen: {
+        kgreen: {
           50: '#E8F5E6',
           100: '#C8E6C4',
           200: '#A5D6A0',

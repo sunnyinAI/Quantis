@@ -85,13 +85,13 @@ export default function AddItemSheet({ isOpen, onClose, onAdd }) {
           onClick={() => setForm({ ...form, is_recurring: !form.is_recurring })}
           className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
             form.is_recurring
-              ? 'border-hundigreen-500 bg-hundigreen-50 dark:bg-hundigreen-900/20'
+              ? 'border-kgreen-500 bg-kgreen-50 dark:bg-kgreen-900/20'
               : 'border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700'
           }`}
         >
-          <RefreshCw size={18} className={form.is_recurring ? 'text-hundigreen-600' : 'text-gray-400'} />
+          <RefreshCw size={18} className={form.is_recurring ? 'text-kgreen-600' : 'text-gray-400'} />
           <div className="text-left">
-            <div className={`text-sm font-medium ${form.is_recurring ? 'text-hundigreen-700 dark:text-hundigreen-400' : 'text-gray-600 dark:text-gray-300'}`}>
+            <div className={`text-sm font-medium ${form.is_recurring ? 'text-kgreen-700 dark:text-kgreen-400' : 'text-gray-600 dark:text-gray-300'}`}>
               Weekly Essential
             </div>
             <div className="text-xs text-gray-400">Auto-appears in recurring list</div>

@@ -5,14 +5,14 @@ import { useOffline } from '../../hooks/useOffline';
 import ToastProvider from '../ui/ToastProvider';
 
 const PAGE_TITLES = {
-  '/': 'Quantis',
+  '/': 'Kharcha',
   '/grocery': 'Grocery List',
   '/prices': 'Price Compare',
   '/pantry': 'Pantry',
   '/finance': 'Finance',
   '/mandi': 'Mandi Prices',
   '/meals': 'Meal Planner',
-  '/assistant': 'Ask Quantis',
+  '/assistant': 'Ask Kharcha',
   '/collaborate': 'Share List',
   '/settings': 'Settings',
 };
@@ -20,7 +20,7 @@ const PAGE_TITLES = {
 export default function AppShell() {
   const location = useLocation();
   const isOffline = useOffline();
-  const title = PAGE_TITLES[location.pathname] || 'Quantis';
+  const title = PAGE_TITLES[location.pathname] || 'Kharcha';
 
   return (
     <div className="flex flex-col min-h-screen min-h-dvh">

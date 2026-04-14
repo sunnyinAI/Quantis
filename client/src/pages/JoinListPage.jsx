@@ -12,7 +12,7 @@ export default function JoinListPage() {
   const { shareCode = '' } = useParams();
   const navigate = useNavigate();
   const token =
-    useAuthStore((state) => state.token) || localStorage.getItem('hundi_token');
+    useAuthStore((state) => state.token) || localStorage.getItem('kharcha_token');
   const { addToast } = useUIStore();
   const [status, setStatus] = useState('loading');
   const [message, setMessage] = useState('');
@@ -61,7 +61,7 @@ export default function JoinListPage() {
           <div className="flex flex-col items-center py-6 text-center">
             <Spinner size="lg" />
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              Connecting your Quantis account to shared list code{' '}
+              Connecting your Kharcha account to shared list code{' '}
               <span className="font-semibold text-gray-800 dark:text-gray-100">
                 {shareCode.toUpperCase()}
               </span>
@@ -71,7 +71,7 @@ export default function JoinListPage() {
 
         {status === 'success' && (
           <div className="text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-hundigreen-50 text-hundigreen-600 dark:bg-hundigreen-900/20 dark:text-hundigreen-300">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-kgreen-50 text-kgreen-600 dark:bg-kgreen-900/20 dark:text-kgreen-300">
               <CheckCircle2 size={26} />
             </div>
             <h1 className="mt-4 text-2xl font-semibold text-gray-900 dark:text-gray-100">

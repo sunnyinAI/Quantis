@@ -54,7 +54,7 @@ export default function OtpPage() {
     if (otpStr.length !== 6) { setError('Enter the 6-digit OTP'); return; }
     try {
       await verifyOtp(phone, otpStr);
-      addToast('Welcome to Quantis!', 'success');
+      addToast('Welcome to Kharcha!', 'success');
       const pendingShareCode = sessionStorage.getItem('pendingShareCode');
       if (pendingShareCode) {
         sessionStorage.removeItem('pendingShareCode');

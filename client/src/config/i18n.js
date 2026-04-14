@@ -1,7 +1,7 @@
 const translations = {
   en: {
     // App
-    appName: 'Quantis',
+    appName: 'Kharcha',
     tagline: 'Apna Ghar, Apna Hisaab',
     // Nav
     home: 'Home',
@@ -12,7 +12,7 @@ const translations = {
     finance: 'Finance',
     mandi: 'Mandi',
     meals: 'Meals',
-    askHundi: 'Ask Quantis',
+    askHundi: 'Ask Kharcha',
     settings: 'Settings',
     // Actions
     add: 'Add',
@@ -93,7 +93,7 @@ const translations = {
   },
   hi: {
     // App
-    appName: 'क्वांटिस',
+    appName: 'खर्चा',
     tagline: 'अपना घर, अपना हिसाब',
     // Nav
     home: 'होम',
@@ -104,7 +104,7 @@ const translations = {
     finance: 'हिसाब',
     mandi: 'मंडी',
     meals: 'खाना',
-    askHundi: 'क्वांटिस से पूछो',
+    askHundi: 'खर्चा से पूछो',
     settings: 'सेटिंग्स',
     // Actions
     add: 'जोड़ें',

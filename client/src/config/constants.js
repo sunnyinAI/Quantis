@@ -1,4 +1,4 @@
-export const APP_NAME = 'Quantis';
+export const APP_NAME = 'Kharcha';
 export const APP_TAGLINE = 'Apna Ghar, Apna Hisaab';
 
 export const GROCERY_CATEGORIES = [

@@ -49,7 +49,7 @@ export default function LoginPage() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
         >
-          <h1 className="text-3xl font-bold mb-1">Quantis</h1>
+          <h1 className="text-3xl font-bold mb-1">Kharcha</h1>
           <p className="text-white/80 text-lg">अपना घर, अपना हिसाब</p>
           <p className="text-white/60 text-sm mt-1">Your Home, Your Accounts</p>
         </motion.div>
