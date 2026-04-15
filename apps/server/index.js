@@ -29,6 +29,12 @@ app.use('/api/meal', require('./routes/meal'));
 app.use('/api/assistant', aiLimiter, require('./routes/assistant'));
 app.use('/api/collaborate', require('./routes/collaborate'));
 
+app.get('/', (req, res) => res.json({
+  app: 'Kharcha API',
+  version: '1.0.0',
+  status: 'running',
+  docs: '/api/health',
+}));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }));
 
 app.use(errorHandler);
