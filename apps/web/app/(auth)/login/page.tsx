@@ -40,14 +40,20 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen min-h-dvh flex flex-col bg-cream dark:bg-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-br from-saffron-500 to-saffron-600 px-6 pt-16 pb-12 text-white">
+      <div className="bg-gradient-to-br from-saffron-500 to-saffron-800 px-6 pt-16 pb-12 text-white">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', damping: 20 }}
-          className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mb-6 backdrop-blur-sm"
+          className="w-20 h-20 rounded-3xl flex items-center justify-center mb-6 relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #0E7490 0%, #073D4A 100%)', boxShadow: '0 4px 20px rgba(0,0,0,0.35)' }}
         >
-          <span className="text-4xl font-bold text-white font-devanagari">ख</span>
+          {/* inner chalkboard surface */}
+          <div className="absolute inset-[5px] rounded-2xl" style={{ background: 'linear-gradient(135deg, #0C3547 0%, #071E2B 100%)' }} />
+          {/* chalk dust specks */}
+          <span className="absolute bottom-2 left-2.5 w-1 h-0.5 rounded-full bg-white/30" />
+          <span className="absolute bottom-2 left-5 w-0.5 h-0.5 rounded-full bg-white/25" />
+          <span className="relative text-4xl font-bold font-devanagari" style={{ color: 'rgba(230,248,255,0.92)', textShadow: '0 0 6px rgba(255,255,255,0.15)' }}>ख</span>
         </motion.div>
         <motion.div
           initial={{ y: 20, opacity: 0 }}

@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --saffron: #FF9933;
+    --saffron: #0E7490;
     --kgreen: #138808;
-    --cream: #F5F5F0;
+    --cream: #F0F8FA;
   }
 
   * {

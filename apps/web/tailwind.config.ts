@@ -11,16 +11,17 @@ const config: Config = {
     extend: {
       colors: {
         saffron: {
-          50: '#FFF4E6',
-          100: '#FFE4B5',
-          200: '#FFCC80',
-          300: '#FFB74D',
-          400: '#FFA726',
-          500: '#FF9933',
-          600: '#E6871A',
-          700: '#CC7600',
-          800: '#994B00',
-          900: '#662F00',
+          50:  '#E0F7FA',
+          100: '#B2EBF2',
+          200: '#80DEEA',
+          300: '#4DD0E1',
+          400: '#26C6DA',
+          500: '#0E7490',  /* primary — teal-blue like Facebook's weight */
+          600: '#0C6275',
+          700: '#0A5060',
+          800: '#073D4A',
+          900: '#042A35',
+          950: '#021820',
         },
         kgreen: {
           50: '#E8F5E6',
@@ -34,7 +35,7 @@ const config: Config = {
           800: '#063902',
           900: '#031E01',
         },
-        cream: '#F5F5F0',
+        cream: '#F0F8FA',
         surface: {
           light: '#FFFFFF',
           dark: '#1E1E1E',
