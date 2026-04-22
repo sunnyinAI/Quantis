@@ -41,6 +41,12 @@ export const useAuthStore = create(
         set({ user: null, token: null });
       },
 
+      deleteAccount: async () => {
+        await api.deleteAccount();
+        localStorage.removeItem('kharcha_token');
+        set({ user: null, token: null });
+      },
+
       updateProfile: async (data) => {
         const res = await api.updateProfile(data);
         set({ user: res.user });

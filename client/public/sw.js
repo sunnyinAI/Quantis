@@ -1,5 +1,11 @@
-const CACHE_NAME = 'quantis-static-v2';
-const APP_SHELL = ['/', '/manifest.json', '/quantis-icon.svg'];
+const CACHE_NAME = 'kharcha-static-v3';
+const APP_SHELL = [
+  '/',
+  '/manifest.json',
+  '/kharcha-icon.svg',
+  '/kharcha-icon-192.png',
+  '/kharcha-icon-512.png',
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

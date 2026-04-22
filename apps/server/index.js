@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const path = require('path');
 const { runMigrations } = require('./db/migrate');
 const { errorHandler } = require('./middleware/errorHandler');
 
@@ -29,13 +30,23 @@ app.use('/api/meal', require('./routes/meal'));
 app.use('/api/assistant', aiLimiter, require('./routes/assistant'));
 app.use('/api/collaborate', require('./routes/collaborate'));
 
-app.get('/', (req, res) => res.json({
+app.get('/api', (req, res) => res.json({
   app: 'Kharcha API',
   version: '1.0.0',
   status: 'running',
   docs: '/api/health',
 }));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'Kharcha' }));
+
+if (process.env.NODE_ENV === 'production') {
+  const clientDist = path.join(__dirname, '..', '..', 'client', 'dist');
+  app.use(express.static(clientDist));
+  app.get(/.*/, (req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+} else {
+  app.get('/', (req, res) => res.redirect('/api'));
+}
 
 app.use(errorHandler);
 

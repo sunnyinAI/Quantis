@@ -6,16 +6,17 @@ databases:
 
 services:
   - type: web
-    name: kharcha-api
+    name: kharcha
     runtime: node
     plan: free
-    rootDir: apps/server
-    buildCommand: npm install
-    startCommand: node index.js
+    buildCommand: npm ci --include=dev && npm ci --prefix client && npm run build --prefix client
+    startCommand: node apps/server/index.js
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "20.20.0"
       - key: DEV_OTP_VISIBLE
         value: "true"
       - key: SESSION_EXPIRY_DAYS

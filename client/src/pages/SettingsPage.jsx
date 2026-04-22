@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronRight, LogOut, Users } from 'lucide-react';
+import { ChevronRight, LogOut, Trash2, Users } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Chip from '../components/ui/Chip';
@@ -20,6 +20,7 @@ export default function SettingsPage() {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const deleteAccount = useAuthStore((state) => state.deleteAccount);
   const updateProfile = useAuthStore((state) => state.updateProfile);
   const language = useUIStore((state) => state.language);
   const darkMode = useUIStore((state) => state.darkMode);
@@ -36,6 +37,8 @@ export default function SettingsPage() {
   const [joinCode, setJoinCode] = useState('');
   const [saving, setSaving] = useState(false);
   const [joining, setJoining] = useState(false);
+  const [deleteConfirm, setDeleteConfirm] = useState('');
+  const [deleting, setDeleting] = useState(false);
 
   const currentLanguage = useMemo(() => language || user?.language || 'en', [language, user?.language]);
 
@@ -76,6 +79,23 @@ export default function SettingsPage() {
   const handleLogout = async () => {
     await logout();
     navigate('/login', { replace: true });
+  };
+
+  const handleDeleteAccount = async () => {
+    if (deleteConfirm !== 'DELETE') {
+      addToast('Type DELETE to confirm account deletion', 'error');
+      return;
+    }
+
+    setDeleting(true);
+    try {
+      await deleteAccount();
+      addToast('Account deleted', 'success');
+      navigate('/login', { replace: true });
+    } catch (err) {
+      addToast(err.message, 'error');
+      setDeleting(false);
+    }
   };
 
   return (
@@ -217,6 +237,40 @@ export default function SettingsPage() {
         <LogOut size={16} />
         Logout
       </Button>
+
+      <Card className="border border-red-100 px-5 py-5 dark:border-red-900/40">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="rounded-2xl bg-red-50 p-3 text-red-600 dark:bg-red-900/20 dark:text-red-300">
+            <Trash2 size={20} />
+          </div>
+          <div>
+            <p className="font-semibold text-gray-900 dark:text-gray-100">
+              Delete account
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Permanently removes your profile, sessions, lists, pantry, finance data, meal plans, and chat history.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <Input
+            label="Type DELETE to confirm"
+            value={deleteConfirm}
+            onChange={(event) => setDeleteConfirm(event.target.value)}
+          />
+          <Button
+            variant="danger"
+            className="w-full"
+            loading={deleting}
+            disabled={deleteConfirm !== 'DELETE'}
+            onClick={handleDeleteAccount}
+          >
+            <Trash2 size={16} />
+            Delete My Account
+          </Button>
+        </div>
+      </Card>
     </div>
   );
 }

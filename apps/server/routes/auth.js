@@ -76,6 +76,23 @@ router.post('/logout', auth, async (req, res) => {
   res.json({ message: 'Logged out' });
 });
 
+router.delete('/account', auth, async (req, res, next) => {
+  const client = await pool.connect();
+
+  try {
+    await client.query('BEGIN');
+    await client.query('UPDATE grocery_items SET added_by = NULL WHERE added_by = $1', [req.user.id]);
+    await client.query('DELETE FROM users WHERE id = $1', [req.user.id]);
+    await client.query('COMMIT');
+    res.json({ message: 'Account and associated data deleted' });
+  } catch (err) {
+    await client.query('ROLLBACK').catch(() => {});
+    next(err);
+  } finally {
+    client.release();
+  }
+});
+
 router.put('/profile', auth, async (req, res) => {
   const { name, language, dark_mode, dietary_pref, family_size, monthly_budget } = req.body;
   await pool.query(

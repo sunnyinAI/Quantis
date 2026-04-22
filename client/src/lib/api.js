@@ -105,6 +105,7 @@ export const streamAssistantChat = async (message, onChunk) => {
 export const sendOtp = (phone) => post('/auth/send-otp', { phone });
 export const verifyOtp = (phone, otp) => post('/auth/verify-otp', { phone, otp });
 export const logout = () => post('/auth/logout');
+export const deleteAccount = () => del('/auth/account');
 export const updateProfile = (data) => put('/auth/profile', data);
 
 // Grocery

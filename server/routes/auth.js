@@ -75,6 +75,17 @@ router.post('/logout', auth, (req, res) => {
   res.json({ message: 'Logged out' });
 });
 
+router.delete('/account', auth, (req, res) => {
+  const db = getDb();
+  const deleteAccount = db.transaction((userId) => {
+    db.prepare('UPDATE grocery_items SET added_by = NULL WHERE added_by = ?').run(userId);
+    db.prepare('DELETE FROM users WHERE id = ?').run(userId);
+  });
+
+  deleteAccount(req.user.id);
+  res.json({ message: 'Account and associated data deleted' });
+});
+
 router.put('/profile', auth, (req, res) => {
   const { name, language, dark_mode, dietary_pref, family_size, monthly_budget } = req.body;
   const db = getDb();
